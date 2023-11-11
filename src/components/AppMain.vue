@@ -8,7 +8,7 @@ export default  {
 },
     data (){
       return {
-
+        store:store
     }
   }
 }
@@ -17,8 +17,13 @@ export default  {
 
 
 <template>
-  <div>
-    <AppCard/>
+  <div v-for="(movie,i) in store.movies" :key="i">
+    <AppCard 
+    :title="movie.title"
+    :originalTitle="movie.original_title"
+    :language="movie.original_language"
+    :vote="movie.vote_average"
+    />
   </div>
 </template>
 

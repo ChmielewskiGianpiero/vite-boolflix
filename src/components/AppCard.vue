@@ -3,7 +3,10 @@ import { store } from '../store';
 
 export default {
     props: {
-        
+        title: String,
+        originalTitle: String,
+        language: String,
+        vote: Number
     }
 }
 
@@ -12,10 +15,10 @@ export default {
 
 <template>
   <ul>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
+    <li> {{ title }} </li>
+    <li> {{ originalTitle }} </li>
+    <li> {{ language }} </li>
+    <li> {{ vote }} </li>
   </ul>
 </template>
 

@@ -27,7 +27,7 @@ export default  {
         const series =  res.data.results;
         this.store.movies = movies
         this.store.series = series
-        console.log(movies, store.movies)
+        console.log(store.movies)
       })
       store.query = ''
     }
