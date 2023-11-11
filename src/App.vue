@@ -24,13 +24,16 @@ export default  {
         }
       }).then(res => {
         const movies = res.data.results;
+        const series =  res.data.results;
         this.store.movies = movies
+        this.store.series = series
         console.log(movies, store.movies)
       })
+      store.query = ''
     }
   },
     created (){
-      this.fetchMovies()
+      
   }
 }
 
@@ -38,7 +41,8 @@ export default  {
 
 
 <template>
-  <AppHeader/>
+  <AppHeader
+  @performSearch="fetchMovies"/>
   <AppMain/>
 </template>
 
