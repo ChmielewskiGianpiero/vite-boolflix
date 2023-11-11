@@ -41,11 +41,18 @@ export default  {
 
 
 <template>
-  <AppHeader
-  @performSearch="fetchMovies"/>
-  <AppMain/>
+    <AppHeader
+    @performSearch="fetchMovies"/>
+    <AppMain/>
 </template>
 
 <style lang="scss">
-@use './styles/general.scss'
+@use './styles/general.scss';
+
+#app{
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
 </style>
