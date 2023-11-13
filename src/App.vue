@@ -51,8 +51,7 @@ export default  {
 
 
 <template>
-    <AppHeader
-    @performSearch="fetchMovies"/>
+    <AppHeader @performSearch="fetchMovies"/>
     <AppMain/>
 </template>
 

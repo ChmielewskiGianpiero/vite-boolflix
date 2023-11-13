@@ -36,11 +36,9 @@ export default  {
 <style lang="scss" scoped>
 @use '../styles/partials/variables' as *;
 
-
-
-
 .app_title{
-    color: $main_color_text ;
+    color: red ;
+    font-weight: 100;
 }
 
 .row{
@@ -55,11 +53,15 @@ export default  {
 }
 .search-text{
     padding: 5px;
-    width: 100%;
+    width: 200px;
 }
 
 .btn-search{
-    padding: 5px;
+    padding: 6px;
+    background-color: white;
+    border: black;
     
 }
+
+
 </style>
