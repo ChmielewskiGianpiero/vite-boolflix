@@ -24,11 +24,21 @@ export default  {
         }
       }).then(res => {
         const movies = res.data.results;
-        const series =  res.data.results;
         this.store.movies = movies
-        this.store.series = series
         console.log(store.movies)
       })
+
+      axios.get('https://api.themoviedb.org/3/search/tv', {
+        params: {
+          api_key: store.API_KEY,
+          query: store.query
+        }
+      }).then(res => {
+        const series =  res.data.results;
+        this.store.series = series
+        console.log(store.series)
+      })
+
       store.query = ''
     }
   },
@@ -51,7 +61,7 @@ export default  {
 
 #app{
   height: 100vh;
-  overflow: hidden;
+  overflow: auto;
   display: flex;
   flex-direction: column;
 }

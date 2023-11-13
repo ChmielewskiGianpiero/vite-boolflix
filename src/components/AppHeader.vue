@@ -10,9 +10,6 @@ export default  {
       return {
         store: store
     }
-  },
-  methods:{
-    
   }
 }
 
@@ -22,25 +19,47 @@ export default  {
 <template>
     <div class="app_header">
         <div class="container">
-            <input type="text" class="search-text" placeholder="cerca un film o una serie tv" v-model="store.query" @keyup.enter="$emit('performSearch', searchQuery )">
-            <button @click="$emit('performSearch', searchQuery )" class="btn-search">cerca</button>
+            <div class="row">
+                <h1 class="app_title">Boolflix</h1>
+                <div class="row">
+                    <input type="text" class="search-text" placeholder="cerca un film o una serie tv" v-model="store.query" @keyup.enter="$emit('performSearch', searchQuery )">
+                    <button @click="$emit('performSearch', searchQuery )" class="btn-search">
+                        <font-awesome-icon icon="magnifying-glass" />
+                    </button>
+                </div>
+            </div>
         </div>
     </div>
     
 </template>
 
 <style lang="scss" scoped>
+@use '../styles/partials/variables' as *;
 
 
 
+
+.app_title{
+    color: $main_color_text ;
+}
+
+.row{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.app_header{
+    background-color: black;
+    padding: 20px;
+}
 .search-text{
-margin-top: 50px;
-padding: 5px;
-width: 500px;
+    padding: 5px;
+    width: 100%;
 }
 
 .btn-search{
-    padding: 20px;
-    margin-left: 20px;
+    padding: 5px;
+    
 }
 </style>
