@@ -3,15 +3,6 @@ import { store } from '../store';
 
 export default {
     props: {
-        // title: String,
-        // originalTitle: String,
-        // language: String,
-        // vote: Number,
-        item: {
-            type: Object,
-            required: true
-        },
-
         item: {
             type: Object,
             required: true
@@ -30,13 +21,15 @@ export default {
     <div class="card">
         <img :src="`https://image.tmdb.org/t/p/w342/${item.poster_path}`" alt="">
         <ul  class="row overlay_card">
-            <li> <b>Titolo:</b> {{ item.title }} {{ item.name }} </li>
-            <li> <b>Titolo originale:</b>  {{ item.original_title }} {{ original_name }} </li>
+            <li v-if="item.title"> <b>Titolo:</b> {{ item.title }}</li>
+            <li v-else="item.name"> <b>Titolo:</b> {{ item.name }} </li>
+            <li v-if="item.original_title"> <b>Titolo originale:</b> {{ item.original_title }} </li>
+            <li v-else="item.original_name"> <b>Titolo originale:</b> {{ item.original_name }} </li>
             <li> <b>Lingua: </b>
                 <img class="flag" v-if="store.flags[item.original_language]" :src="store.flags[item.original_language]" alt="">    
                 <p v-else>{{ item.original_language }}</p>  
             </li>
-            <li> <b>Voto:</b> {{ item.vote_average }} </li>
+            <li> <b>Voto:</b> {{ Math.round(item.vote_average) / 2 }} </li>
         </ul>
     </div>
         
@@ -59,7 +52,6 @@ export default {
     position: relative;
     background-color: $bg-primary-color;
     color: $main_color_text;
-    padding: 20px;
     border: 2px solid white;
 
     &:hover{

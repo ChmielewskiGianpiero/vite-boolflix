@@ -1,6 +1,5 @@
 <script>
 import AppCardMovies from './AppCardMovies.vue';
-import AppCardSeries from './AppCardSeries.vue';
 import { store } from '../store';
 
 export default  {
@@ -27,7 +26,7 @@ export default  {
             </div>
 
             <div class="col-2" v-for="(serie, i) in store.series" :key="i">
-                    <AppCardSeries :item="serie"/>
+                    <AppCardMovies :item="serie"/>
             </div>
         </div>
     </div>
@@ -60,7 +59,6 @@ export default  {
 .card{
     background-color: $bg-primary-color;
     color: $main_color_text;
-    padding: 20px;
     border: 2px solid white;
     position: relative;
 }
